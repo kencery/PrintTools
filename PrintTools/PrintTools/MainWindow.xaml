@@ -1,0 +1,7 @@
+﻿<Window x:Class="PrintTools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="打印小工具" Height="560" Width="725" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+    </Grid>
+</Window>
