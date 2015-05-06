@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace PrintTools
 {
@@ -15,7 +16,10 @@ namespace PrintTools
             PrintTool.Title = string.IsNullOrEmpty(indexDic["title"]) ? "打印小工具" : indexDic["title"]; //软件名称
             //打印功能名称
             Leave.Header = string.IsNullOrEmpty(indexDic["leave"]) ? "请假单" : indexDic["leave"];
+            
             GoWork.Header = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
+            CreateName.Content = "接收时间：" + DateTime.Now.ToString("yyyy-MM-dd");
+            TabControl.FontSize = 16;
         }
     }
 }

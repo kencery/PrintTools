@@ -34,10 +34,20 @@
             <TabItem Name="Leave">
                 <Grid>
                     <Label Name="Label" Content="请假条" HorizontalAlignment="Center" />
-                    <Label Content="甘肃联众建筑设计有限责任公司" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
-                    <Label Name="CreateName" HorizontalAlignment="Left" Margin="407,40,0,0" VerticalAlignment="Top"/>
-                    <Grid>
-                        
+                    <Label Content="甘肃联众建筑设计有限责任公司 " HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
+                    <Label Content="接收时间：" HorizontalAlignment="Left" Margin="407,40,0,0" VerticalAlignment="Top"/>
+                    <Grid  Height="402" HorizontalAlignment="Left" Margin="31,87,0,0" x:Name="grid1" VerticalAlignment="Top" Width="645">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="223*" />
+                            <ColumnDefinition Width="223*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="117*" />
+                            <RowDefinition Height="143*" />
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.ColumnSpan="2" />
+                        <Rectangle Grid.Row="1" Fill="LightBlue"/>
+                        <Rectangle Grid.Row="1" Grid.Column="1" Fill="LightCyan"/>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -46,6 +56,7 @@
                     <TextBlock Text="出工单布局设计" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
