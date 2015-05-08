@@ -59,6 +59,7 @@
       <DependentUpon>PrintPreWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PrintTool\IDocumentRender.cs" />
+    <Compile Include="PrintTool\PrintTxtValue.cs" />
     <Compile Include="ReadXML\ReadXml.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
