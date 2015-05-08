@@ -13,12 +13,21 @@ namespace PrintTools
             InitializeComponent();
             //初始化信息的时候给首页的内容读取XML文件中的信息显示，读取需要显示的内容
             var indexDic = ReadXml.ReadXmlTitle();
+            //软件名称，打印时间
             PrintTool.Title = string.IsNullOrEmpty(indexDic["title"]) ? "打印小工具" : indexDic["title"]; //软件名称
-            //打印功能名称
-            Leave.Header = string.IsNullOrEmpty(indexDic["leave"]) ? "请假单" : indexDic["leave"];
-            
+            LeavePrintDateTime.Text = "打印时间：" + DateTime.Now.ToString("yyyy-MM-dd");
+
+            //请假单和出工单共用的方法
+            LevelCompanyName.Text =
+                string.IsNullOrEmpty(indexDic["companyName"]) ? "甘肃联众建筑设计有限责任公司" : indexDic["companyName"];
+
+            //打印_请假条，首页顶端想要的信息 
+            LeaveTitle.Header = LeaveName.Text = string.IsNullOrEmpty(indexDic["leave"]) ? "请假条" : indexDic["leave"];
+            //打印备注：最多允许6条备注，超过6条备注后页面会变得很乱
+            LeveRemark.Text = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"];
+            //打印_出工单，首页顶端想要的信息 
             GoWork.Header = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
-            CreateName.Content = "接收时间：" + DateTime.Now.ToString("yyyy-MM-dd");
+            
             TabControl.FontSize = 16;
         }
     }
