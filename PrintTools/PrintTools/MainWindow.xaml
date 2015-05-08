@@ -52,7 +52,8 @@
                     <TextBlock HorizontalAlignment="Left" Margin="26,394,0,0" Text="" TextWrapping="Wrap" Name="LeveRemark" VerticalAlignment="Top"/>
 
                     <!--第4步：添加打印预览和打印按钮-->
-                    
+                    <Button Content="打印" Margin="505,537,222,21" Name="PrintLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintLeave_Click" />
+                    <Button Content="打印预览"  Margin="618,537,95,21" Name="PrintPreLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintPreLeave_Click"/>
                 </Grid>
             </TabItem>
 
@@ -62,6 +63,7 @@
                     <TextBlock Text="出工单布局设计" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
+
 
 
         </TabControl>

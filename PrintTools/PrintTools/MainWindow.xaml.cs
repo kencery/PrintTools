@@ -27,8 +27,24 @@ namespace PrintTools
             LeveRemark.Text = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"];
             //打印_出工单，首页顶端想要的信息 
             GoWork.Header = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
-            
+
             TabControl.FontSize = 16;
+        }
+
+        /// <summary>
+        /// 直接打印请假单的实现，调用模板页直接打印
+        /// </summary>
+        private void PrintLeave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 打印预览请假单的实现，调用预览模板页进行并且打印
+        /// </summary>
+        private void PrintPreLeave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
