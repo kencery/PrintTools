@@ -1,7 +1,7 @@
 ﻿<Application x:Class="PrintTools.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml">
+             StartupUri="PrintPreWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

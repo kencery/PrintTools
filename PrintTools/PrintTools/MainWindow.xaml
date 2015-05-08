@@ -63,9 +63,7 @@
                     <TextBlock Text="出工单布局设计" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
-
-
-
+            
         </TabControl>
     </Grid>
 </Window>
