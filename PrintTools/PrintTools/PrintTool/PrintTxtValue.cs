@@ -58,6 +58,5 @@ namespace PrintTools
         /// 公司领导签字
         /// </summary>
         public string LeadIdeaSign { get; set; }
-
     }
 }
