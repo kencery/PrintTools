@@ -30,14 +30,6 @@ namespace PrintTools
         private readonly FlowDocument _flowDocument;
 
         /// <summary>
-        /// 只是单个的运行打印预览的模板
-        /// </summary>
-        public PrintPreWindow()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
         /// 构造初始化对象
         /// </summary>
         public PrintPreWindow(string strTemlName, Object data, IDocumentRender render = null)

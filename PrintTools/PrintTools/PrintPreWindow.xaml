@@ -1,4 +1,4 @@
-﻿<Page x:Class="PrintTools.PrintPreWindow"
+﻿<Window x:Class="PrintTools.PrintPreWindow"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Height="806" Width="882" 
@@ -6,4 +6,4 @@
     <Grid>
         <DocumentViewer Name="DocumentViewer"></DocumentViewer>
     </Grid>
-</Page>
+</Window>
