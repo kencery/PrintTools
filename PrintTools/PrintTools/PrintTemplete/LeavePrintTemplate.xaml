@@ -1,5 +1,297 @@
 ﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              ColumnWidth="400" FontSize="14" FontFamily="宋体"
+              ColumnWidth="800" FontSize="16" FontFamily="宋体"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" TextOptions.TextFormattingMode="Display">
+    <!--限制下面Table表格的格式信息，将需要打印的内容构造成table-->
+    <FlowDocument.Resources>
+        <Style TargetType="Table" x:Key="BorderTable">
+            <Setter Property="CellSpacing" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+        </Style>
+        <Style TargetType="TableCell" x:Key="BorderCell">
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="BorderBrush" Value="#000"></Setter>
+            <Setter Property="Padding" Value="3"></Setter>
+        </Style>
+    </FlowDocument.Resources>
+    <!--一页需要打印两个文件，首先构造第一个打印模板(第一个和第二个基本相同)-->
+    <Paragraph  Padding="600 20 0 0" >
+        <Run>打印时间:</Run>
+        <Run>暂未绑定</Run>
+    </Paragraph>
+    <!--第一个table,最终绑定后端传到前段的数据信息-->
+    <Paragraph>
+        <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
+    </Paragraph>
+    <Paragraph FontSize="18px">
+        <TextBlock Margin="30,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
+    </Paragraph>
+    <Table Margin="30 0 30 0" Style="{StaticResource BorderTable}">
+        <Table.Columns>
+            <TableColumn Width="140"></TableColumn>
+            <TableColumn Width="240"></TableColumn>
+            <TableColumn Width="130"></TableColumn>
+            <TableColumn Width="250"></TableColumn>
+        </Table.Columns>
+        <TableRowGroup>
+            <!--第1行实现,请假人名称部门-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="28 10 0 0" Text="请假人名称" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="44 10 0 0" Text="部门" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第2行实现,假期类别-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" ColumnSpan="4" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Text="假别：" Margin="20,-12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                        <CheckBox Content="事假" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" />
+                        <CheckBox Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第3行实现,请假时间和起止日期-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                            <Run Text="  请假时间"/>
+                            <LineBreak/><Run Text="(小时、天数)"/>
+                        </TextBlock>            
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="30 34 0 0"  VerticalAlignment="Top"/>
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                            <Run Text="起"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Top" Margin="10 30 0 0" TextWrapping="Wrap" >
+                            <Run Text="止"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                        </TextBlock>
+                        <!--<TextBlock TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>-->
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第4行实现,主管领导意见和公司领导意见-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="18 10 0 0" Text="主管领导意见" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="18 10 0 0" Text="公司领导意见" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第5行实现,签字-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="40 10 0 0" Text="签字" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="40 10 0 0" Text="签字" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第5行实现,备注-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}"  ColumnSpan="4">
+                    <Paragraph>
+                        备注：1.请假人员交送请假条时应监督办公室填写接收时间。
+                        2.事假、丧假领导签字日期可在请假截止日期之后，但相差不得超过2个工作日，否则视为无效。
+      3.请假批准日期与接收时间相差不得超过3个工作日，否则视为无效。  
+      4.请相关人员完整填写请假条，签字请并注明详细时间。
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            
+        </TableRowGroup>
+    </Table>
+    <Paragraph>
+        <Line X1="30" Y1="10" X2="790" Y2="10" StrokeDashArray="5" Stroke="#000" StrokeThickness="1"/>
+    </Paragraph>
+    <!--第2个table,最终绑定后端传到前段的数据信息，重复打印出上面的打印内容-->
+    <Paragraph>
+        <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
+    </Paragraph>
+    <Paragraph FontSize="18px">
+        <TextBlock Margin="30,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
+    </Paragraph>
+    <Table Margin="30 0 30 0" Style="{StaticResource BorderTable}">
+        <Table.Columns>
+            <TableColumn Width="140"></TableColumn>
+            <TableColumn Width="240"></TableColumn>
+            <TableColumn Width="130"></TableColumn>
+            <TableColumn Width="250"></TableColumn>
+        </Table.Columns>
+        <TableRowGroup>
+            <!--第1行实现,请假人名称部门-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="28 10 0 0" Text="请假人名称" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="44 10 0 0" Text="部门" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第2行实现,假期类别-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" ColumnSpan="4" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Text="假别：" Margin="20,-12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                        <CheckBox Content="事假" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" />
+                        <CheckBox Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <CheckBox Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第3行实现,请假时间和起止日期-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                            <Run Text="  请假时间"/>
+                            <LineBreak/><Run Text="(小时、天数)"/>
+                        </TextBlock>
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="30 34 0 0"  VerticalAlignment="Top"/>
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                            <Run Text="起"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                        </TextBlock>
+                        <TextBlock VerticalAlignment="Top" Margin="10 30 0 0" TextWrapping="Wrap" >
+                            <Run Text="止"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                        </TextBlock>
+                        <!--<TextBlock TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>-->
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第4行实现,主管领导意见和公司领导意见-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="18 10 0 0" Text="主管领导意见" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="18 10 0 0" Text="公司领导意见" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第5行实现,签字-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
+                    <Paragraph>
+                        <TextBlock Margin="40 10 0 0" Text="签字" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph>
+                        <TextBlock Margin="40 10 0 0" Text="签字" />
+                    </Paragraph>
+                </TableCell>
+                <TableCell Style="{StaticResource BorderCell}">
+                    <Paragraph></Paragraph>
+                </TableCell>
+            </TableRow>
+            <!--第5行实现,备注-->
+            <TableRow>
+                <TableCell Style="{StaticResource BorderCell}"  ColumnSpan="4">
+                    <Paragraph>
+                        备注：1.请假人员交送请假条时应监督办公室填写接收时间。
+                        2.事假、丧假领导签字日期可在请假截止日期之后，但相差不得超过2个工作日，否则视为无效。
+      3.请假批准日期与接收时间相差不得超过3个工作日，否则视为无效。  
+      4.请相关人员完整填写请假条，签字请并注明详细时间。
+                    </Paragraph>
+                </TableCell>
+            </TableRow>
 
+        </TableRowGroup>
+    </Table>
 </FlowDocument>
