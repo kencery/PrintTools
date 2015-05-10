@@ -1,6 +1,6 @@
 ﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               ColumnWidth="800" FontSize="16" FontFamily="宋体"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" TextOptions.TextFormattingMode="Display">
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  TextOptions.TextFormattingMode="Display">
     <!--限制下面Table表格的格式信息，将需要打印的内容构造成table-->
     <FlowDocument.Resources>
         <Style TargetType="Table" x:Key="BorderTable">
