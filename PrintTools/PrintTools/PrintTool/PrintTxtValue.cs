@@ -58,5 +58,14 @@ namespace PrintTools
         /// 公司领导签字
         /// </summary>
         public string LeadIdeaSign { get; set; }
+
+        /// <summary>
+        /// 构造函数，赋给类初始化的数据
+        /// </summary>
+        public PrintTxtValue()
+        {
+            var indexDic = ReadXml.ReadXmlTitle();
+
+        }
     }
 }

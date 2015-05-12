@@ -92,14 +92,23 @@ namespace PrintTools
         /// </summary>
         private void PrintPreLeave_Click(object sender, RoutedEventArgs e)
         {
+              //初始化信息的时候给首页的内容读取XML文件中的信息显示，读取需要显示的内容
+            var indexDic = ReadXml.ReadXmlTitle();
+            //构造打印的实体信息
+            var printTxtValue = new PrintTxtValue
+            {
+                LeaveDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:ss"),
+                LeadIdeaSign = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]
+            };
 
-            var print = new PrintPreWindow(@"PrintTemplete/LeavePrintTemplate.xaml", "")
+            var print = new PrintPreWindow(@"PrintTemplete/LeavePrintTemplate.xaml", printTxtValue)
             {
                 Owner = this,
                 ShowInTaskbar = false
             };
             print.ShowDialog();
         }
+
 
         /// <summary>
         /// 实现调用打印机驱动程序

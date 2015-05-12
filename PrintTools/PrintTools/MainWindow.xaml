@@ -1,59 +1,76 @@
 ﻿<Window x:Class="PrintTools.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Name="PrintTool" Height="660" Width="820" FontSize="16" Icon="Images\icon.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Name="PrintTool" Height="600" Width="780" FontSize="16" Icon="Images\icon.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <TabControl Name="TabControl">
             <!--请假条框架的实现-->
             <TabItem Name="LeaveTitle" Header="请假条">
                 <Grid>
                     <!--首页顶端需要显示的信息-->
-                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,10,42,0" TextWrapping="Wrap" Text="打印时间：" />
+                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap" Text="打印时间：" />
                     <TextBlock HorizontalAlignment="Center" Name="LeaveName" Margin="0,20,0,0" TextWrapping="Wrap" Text="请假条" FontSize="26"/>
-                    <TextBlock Margin="20,74,0,0" TextWrapping="Wrap" Name="LevelCompanyName" Text="甘肃联众建筑设计有限责任公司" VerticalAlignment="Top" FontSize="18"/>
-                    <TextBlock HorizontalAlignment="Right" Margin="0,74,200,0" TextWrapping="Wrap" Text="接收时间：" VerticalAlignment="Top"/>
+                    <TextBlock Margin="10,74,0,0" TextWrapping="Wrap" Name="LevelCompanyName" Text="甘肃联众建筑设计有限责任公司" VerticalAlignment="Top" FontSize="18"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0,74,140,0" TextWrapping="Wrap" Text="接收时间：" VerticalAlignment="Top" FontSize="18"/>
                     <!--布局下面进行操作的边框，第1步：横向布局信息-->
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,100,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,150,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,190,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,290,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,340,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,390,0,0" VerticalAlignment="Top" Width="748"/>
-                    <Separator HorizontalAlignment="Left" Height="1" Margin="20,520,0,0" VerticalAlignment="Top" Width="748"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,100,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,140,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,180,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,274,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,320,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,360,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,480,0,0" VerticalAlignment="Top" Width="736"/>
                     <!--第2步：纵向布局信息 配置颜色一致：#FFA0A0A0-->
-                    <GridSplitter HorizontalAlignment="Left" Height="420" Margin="20,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="420" Margin="766,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="175,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="400,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="505,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="200" Margin="175,191,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="200" Margin="400,191,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
-                    <GridSplitter HorizontalAlignment="Left" Height="200" Margin="505,190,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="380" Margin="10,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="380" Margin="746,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="40" Margin="150,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="40" Margin="380,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="40" Margin="510,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="180" Margin="150,180,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="180" Margin="380,180,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="180" Margin="510,180,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
                     <!--第3步：为行数布局内容：第1行内容布局-->
-                    <TextBlock HorizontalAlignment="Left" Margin="64,114,0,0" TextWrapping="Wrap" Text="请假人姓名" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="434,114,0,0" TextWrapping="Wrap" Text="部门" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="40,110,0,0" TextWrapping="Wrap" Text="请假人姓名" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="430,110,0,0" TextWrapping="Wrap" Text="部门" VerticalAlignment="Top"/>
                     <!--第3.1步：第2行内容布局，请假的类别-->
-                    <TextBlock Text="假别：" HorizontalAlignment="Left" Margin="64,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <CheckBox Content="事假" HorizontalAlignment="Left" Margin="130,160,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="丧假" HorizontalAlignment="Left" Margin="230,160,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="婚假" HorizontalAlignment="Left" Margin="330,160,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="产假" HorizontalAlignment="Left" Margin="430,160,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="病假" HorizontalAlignment="Left" Margin="530,160,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="年休假" HorizontalAlignment="Left" Margin="630,160,0,0" VerticalAlignment="Top"/>
+                    <TextBlock Text="假别：" HorizontalAlignment="Left" Margin="60,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                    <CheckBox Content="事假" HorizontalAlignment="Left" Margin="130,150,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="丧假" HorizontalAlignment="Left" Margin="230,150,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="婚假" HorizontalAlignment="Left" Margin="330,150,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="产假" HorizontalAlignment="Left" Margin="430,150,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="病假" HorizontalAlignment="Left" Margin="530,150,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="年休假" HorizontalAlignment="Left" Margin="630,150,0,0" VerticalAlignment="Top"/>
                     <!--第3.2步：第3行内容布局，请假时间和起止日期-->
-                    <TextBlock HorizontalAlignment="Left" Margin="56,220,0,0" VerticalAlignment="Top"><Run Language="zh-cn" Text="  "/><Run Text="请假时间"/><LineBreak/><Run Text="(小时、天数)"/></TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Margin="423,230,0,0" TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top"><Run Language="zh-cn" Text="  "/><Run Text="请假时间"/><LineBreak/><Run Text="(小时、天数)"/></TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="410,220,0,0" TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>
+                    <TextBlock VerticalAlignment="Top" Margin="520,200,0,0" TextWrapping="Wrap">
+                            <Run Text="起"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                    </TextBlock>
+                    <TextBlock VerticalAlignment="Top" Margin="520,250,0,0" TextWrapping="Wrap" >
+                            <Run Text="止"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="日"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="30"/><Run Text="时"/>
+                    </TextBlock>
                     <!--第3.3步：第4.5行内容布局，主管领导和公司领导意见，签名-->
-                    <TextBlock HorizontalAlignment="Left" Margin="50,304,0,0" TextWrapping="Wrap" Text="主管领导意见" VerticalAlignment="Top" Width="105" />
-                    <TextBlock HorizontalAlignment="Left" Margin="404,304,0,0" TextWrapping="Wrap" Text="公司领导意见" VerticalAlignment="Top" Width="105"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="78,354,0,0" TextWrapping="Wrap" Text="签字" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="438,354,0,0" TextWrapping="Wrap" Text="签字" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="30,286,0,0" TextWrapping="Wrap" Text="主管领导意见" VerticalAlignment="Top" Width="105" />
+                    <TextBlock HorizontalAlignment="Left" Margin="400,286,0,0" TextWrapping="Wrap" Text="公司领导意见" VerticalAlignment="Top" Width="105"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="70,330,0,0" TextWrapping="Wrap" Text="签字" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="430,330,0,0" TextWrapping="Wrap" Text="签字" VerticalAlignment="Top"/>
                     <!--第3.4步：第5行内容布局，备注-->
-                    <TextBlock HorizontalAlignment="Left" Margin="26,394,0,0" Text="" TextWrapping="Wrap" Name="LeveRemark" VerticalAlignment="Top"/>
+                    
+                    <TextBlock HorizontalAlignment="Left" Margin="20,370,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top">
+                        <Run Name="LeveRemark" Text=""></Run>
+                    </TextBlock>
 
                     <!--第4步：添加打印预览和打印按钮-->
-                    <Button Content="打印" Margin="505,537,222,21" Name="PrintLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintLeave_Click" />
-                    <Button Content="打印预览"  Margin="618,537,95,21" Name="PrintPreLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintPreLeave_Click"/>
+                    <Button Content="打印" Margin="495,486,195,10" Name="PrintLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintLeave_Click" />
+                    <Button Content="打印预览"  Margin="603,486,69,10" Name="PrintPreLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintPreLeave_Click"/>
                 </Grid>
             </TabItem>
 
