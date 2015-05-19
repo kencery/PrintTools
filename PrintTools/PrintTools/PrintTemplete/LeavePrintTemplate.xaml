@@ -15,7 +15,7 @@
         </Style>
     </FlowDocument.Resources>
     <!--一页需要打印两个文件，首先构造第一个打印模板(第一个和第二个基本相同)-->
-    <Paragraph  Padding="580 20 0 0" >  
+    <Paragraph  Padding="540 20 0 0" >  
         <Run>打印时间:</Run>
         <Run Text="{Binding LeaveDateTime}"></Run>
     </Paragraph>
@@ -24,14 +24,14 @@
         <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
     </Paragraph>
     <Paragraph FontSize="18px">
-        <TextBlock Margin="30,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock Margin="34,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
         <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
     </Paragraph>
-    <Table Margin="30 0 30 0" Style="{StaticResource BorderTable}">
+    <Table Margin="34 0 30 0" Style="{StaticResource BorderTable}">
         <Table.Columns>
-            <TableColumn Width="140"></TableColumn>
-            <TableColumn Width="240"></TableColumn>
-            <TableColumn Width="130"></TableColumn>
+            <TableColumn Width="120"></TableColumn>
+            <TableColumn Width="250"></TableColumn>
+            <TableColumn Width="120"></TableColumn>
             <TableColumn Width="250"></TableColumn>
         </Table.Columns>
         <TableRowGroup>
@@ -39,7 +39,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
                     <Paragraph>
-                        <TextBlock Margin="28 10 0 0" Text="请假人名称" />
+                        <TextBlock Margin="18 10 0 0" Text="请假人名称" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -71,7 +71,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                        <TextBlock VerticalAlignment="Top" Margin="10 20 0 0" TextWrapping="Wrap" >
                             <Run Text="  请假时间"/>
                             <LineBreak/><Run Text="(小时、天数)"/>
                         </TextBlock>            
@@ -81,7 +81,7 @@
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="30 34 0 0"  VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="26 34 0 0"  VerticalAlignment="Top"/>
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -109,14 +109,14 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
                     <Paragraph>
-                        <TextBlock Margin="18 10 0 0" Text="主管领导意见" />
+                        <TextBlock Margin="10 10 0 0" Text="主管领导意见" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock Margin="18 10 0 0" Text="公司领导意见" />
+                        <TextBlock Margin="10 10 0 0" Text="公司领导意见" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -149,25 +149,24 @@
                     </Paragraph>
                 </TableCell>
             </TableRow>
-            
         </TableRowGroup>
     </Table>
     <Paragraph>
         <Line X1="30" Y1="10" X2="790" Y2="10" StrokeDashArray="5" Stroke="#000" StrokeThickness="1"/>
-    </Paragraph>
+    </Paragraph> 
     <!--第2个table,最终绑定后端传到前段的数据信息，重复打印出上面的打印内容-->
     <Paragraph>
         <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
     </Paragraph>
     <Paragraph FontSize="18px">
-        <TextBlock Margin="30,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock Margin="34,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
         <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
     </Paragraph>
-    <Table Margin="30 0 30 0" Style="{StaticResource BorderTable}">
+    <Table Margin="34 0 30 0" Style="{StaticResource BorderTable}">
         <Table.Columns>
-            <TableColumn Width="140"></TableColumn>
-            <TableColumn Width="240"></TableColumn>
-            <TableColumn Width="130"></TableColumn>
+            <TableColumn Width="120"></TableColumn>
+            <TableColumn Width="250"></TableColumn>
+            <TableColumn Width="120"></TableColumn>
             <TableColumn Width="250"></TableColumn>
         </Table.Columns>
         <TableRowGroup>
@@ -175,7 +174,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
                     <Paragraph>
-                        <TextBlock Margin="28 10 0 0" Text="请假人名称" />
+                        <TextBlock Margin="18 10 0 0" Text="请假人名称" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -207,7 +206,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock VerticalAlignment="Top" Margin="10 16 0 0" TextWrapping="Wrap" >
+                        <TextBlock VerticalAlignment="Top" Margin="10 20 0 0" TextWrapping="Wrap" >
                             <Run Text="  请假时间"/>
                             <LineBreak/><Run Text="(小时、天数)"/>
                         </TextBlock>
@@ -217,7 +216,7 @@
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="30 34 0 0"  VerticalAlignment="Top"/>
+                        <TextBlock TextWrapping="Wrap" Text="起止日期" Margin="26 34 0 0"  VerticalAlignment="Top"/>
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -245,14 +244,14 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}" LineHeight="28">
                     <Paragraph>
-                        <TextBlock Margin="18 10 0 0" Text="主管领导意见" />
+                        <TextBlock Margin="10 10 0 0" Text="主管领导意见" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
                     <Paragraph>
-                        <TextBlock Margin="18 10 0 0" Text="公司领导意见" />
+                        <TextBlock Margin="10 10 0 0" Text="公司领导意见" />
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
@@ -285,7 +284,6 @@
                     </Paragraph>
                 </TableCell>
             </TableRow>
-
         </TableRowGroup>
     </Table>
 </FlowDocument>
