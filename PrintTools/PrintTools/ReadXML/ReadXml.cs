@@ -6,6 +6,7 @@
 // 创建时间：2015/05/06
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Xml;
 
@@ -54,6 +55,24 @@ namespace PrintTools
                 dictionary.Add(xmlNodeList.Name, xmlNodeList.InnerText);
             }
             return dictionary;
+        }
+
+        /// <summary>
+        /// 读取XML文件中的信息，传递到前台进行绑定
+        /// </summary>
+        public static PrintTxtValue GetLeavePrintTxtValue()
+        {
+            //调用方法，读取XML
+            var indexDic = ReadXml.ReadXmlTitle();
+            //构造需要显示到前端的信息
+            var printTxtValue = new PrintTxtValue
+            {
+                PrintDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:ss"),
+                Title = string.IsNullOrEmpty(indexDic["leave"]) ? "请假条" : indexDic["leave"],
+                CompanyName = string.IsNullOrEmpty(indexDic["companyName"]) ? "甘肃联众建筑设计有限责任公司" : indexDic["companyName"],
+                Remark = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]
+            };
+            return printTxtValue;
         }
     }
 }

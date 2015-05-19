@@ -5,6 +5,7 @@
 // 创建人：韩迎龙(kencery)
 // 创建时间：2015/05/08
 // </copyright>
+
 namespace PrintTools
 {
     /// <summary>
@@ -14,6 +15,7 @@ namespace PrintTools
     /// </summary>
     public class PrintTxtValue
     {
+
         /// <summary>
         /// 请假人名称
         /// </summary>
@@ -59,13 +61,26 @@ namespace PrintTools
         /// </summary>
         public string LeadIdeaSign { get; set; }
 
-        /// <summary>
-        /// 构造函数，赋给类初始化的数据
-        /// </summary>
-        public PrintTxtValue()
-        {
-            var indexDic = ReadXml.ReadXmlTitle();
 
-        }
+        //V1.0需要返回到前段的信息------------------------------------
+        /// <summary>
+        /// 打印时间—读取XML
+        /// </summary>
+        public string PrintDateTime { get; set; } 
+
+        /// <summary>
+        /// 标题(请假条，出工单)—读取XML
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
+        /// 公司名称
+        /// </summary>
+        public string CompanyName { get; set; }
+
+        /// <summary>
+        /// 公司备注
+        /// </summary>
+        public string Remark { get; set; }
     }
 }

@@ -8,7 +8,7 @@
             <TabItem Name="LeaveTitle" Header="请假条">
                 <Grid>
                     <!--首页顶端需要显示的信息-->
-                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap" Text="打印时间：" />
+                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap" Text="{Binding LeaveDateTime}" />
                     <TextBlock HorizontalAlignment="Center" Name="LeaveName" Margin="0,20,0,0" TextWrapping="Wrap" Text="请假条" FontSize="26"/>
                     <TextBlock Margin="10,74,0,0" TextWrapping="Wrap" Name="LevelCompanyName" Text="甘肃联众建筑设计有限责任公司" VerticalAlignment="Top" FontSize="18"/>
                     <TextBlock HorizontalAlignment="Right" Margin="0,74,140,0" TextWrapping="Wrap" Text="接收时间：" VerticalAlignment="Top" FontSize="18"/>
@@ -67,20 +67,17 @@
                     <TextBlock HorizontalAlignment="Left" Margin="20,370,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top">
                         <Run Name="LeveRemark" Text=""></Run>
                     </TextBlock>
-
                     <!--第4步：添加打印预览和打印按钮-->
                     <Button Content="打印" Margin="495,486,195,10" Name="PrintLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintLeave_Click" />
                     <Button Content="打印预览"  Margin="603,486,69,10" Name="PrintPreLeave" RenderTransformOrigin="0.51,-0.02" Click="PrintPreLeave_Click"/>
                 </Grid>
             </TabItem>
-
             <!--出工单框架的实现-->
             <TabItem Name="GoWork" Header="出工单" HorizontalAlignment="Left">
                 <Grid>
                     <TextBlock Text="出工单布局设计" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
             </TabItem>
-            
         </TabControl>
     </Grid>
 </Window>

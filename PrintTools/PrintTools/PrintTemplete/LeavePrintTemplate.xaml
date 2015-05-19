@@ -17,14 +17,14 @@
     <!--一页需要打印两个文件，首先构造第一个打印模板(第一个和第二个基本相同)-->
     <Paragraph  Padding="540 20 0 0" >  
         <Run>打印时间:</Run>
-        <Run Text="{Binding LeaveDateTime}"></Run>
+        <Run Text="{Binding PrintDateTime}"></Run>
     </Paragraph>
     <!--第一个table,最终绑定后端传到前段的数据信息-->
     <Paragraph>
-        <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
+        <TextBlock Margin="360,0,0,0" Text="{Binding Title}" FontSize="26"/>
     </Paragraph>
     <Paragraph FontSize="18px">
-        <TextBlock Margin="34,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock Margin="34,0,0,0" Text="{Binding CompanyName}"/>
         <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
     </Paragraph>
     <Table Margin="34 0 30 0" Style="{StaticResource BorderTable}">
@@ -145,7 +145,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}"  ColumnSpan="4">
                     <Paragraph>
-                        <Run Text="{Binding LeadIdeaSign}"></Run>
+                        <Run Text="{Binding Remark}"></Run>
                     </Paragraph>
                 </TableCell>
             </TableRow>
@@ -156,10 +156,10 @@
     </Paragraph> 
     <!--第2个table,最终绑定后端传到前段的数据信息，重复打印出上面的打印内容-->
     <Paragraph>
-        <TextBlock Margin="360,0,0,0" Text="请假条" FontSize="26"/>
+        <TextBlock Margin="360,0,0,0" Text="{Binding Title}" FontSize="26"/>
     </Paragraph>
     <Paragraph FontSize="18px">
-        <TextBlock Margin="34,0,0,0" Text="甘肃联众建筑设计有限责任公司"/>
+        <TextBlock Margin="34,0,0,0" Text="{Binding CompanyName}"/>
         <TextBlock HorizontalAlignment="Right" Margin="240,0,0,0" Text="接收时间：" />
     </Paragraph>
     <Table Margin="34 0 30 0" Style="{StaticResource BorderTable}">
@@ -280,7 +280,7 @@
             <TableRow>
                 <TableCell Style="{StaticResource BorderCell}"  ColumnSpan="4">
                     <Paragraph>
-                        <Run Text="{Binding LeadIdeaSign}"></Run>
+                        <Run Text="{Binding Remark}"></Run>
                     </Paragraph>
                 </TableCell>
             </TableRow>
