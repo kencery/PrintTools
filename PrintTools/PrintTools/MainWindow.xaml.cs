@@ -36,16 +36,22 @@ namespace PrintTools
             InitializeComponent();
             //初始化信息的时候给首页的内容读取XML文件中的信息显示，读取需要显示的内容
             var indexDic = ReadXml.ReadXmlTitle();
+
+            //通用内容整理—打印请假条，出工单
             PrintTool.Title = string.IsNullOrEmpty(indexDic["title"]) ? "打印小工具" : indexDic["title"]; //软件名称
-            LeavePrintDateTime.Text = "打印时间：" + DateTime.Now.ToString("yyyy-MM-dd"); //打印时间
-            LevelCompanyName.Text = string.IsNullOrEmpty(indexDic["companyName"])
+            LeavePrintDateTime.Text = GoWorkPrintDateTime.Text = "打印时间：" + DateTime.Now.ToString("yyyy-MM-dd"); //打印时间
+            LevelCompanyName.Text = GoWorkCompanyName.Text = string.IsNullOrEmpty(indexDic["companyName"])
                 ? "甘肃联众建筑设计有限责任公司"
                 : indexDic["companyName"]; //请假单和出工单共用的方法
+            TabControl.FontSize = 16; //字体大小限制为16px
+
             //打印—请假条
             LeaveTitle.Header = LeaveName.Text = string.IsNullOrEmpty(indexDic["leave"]) ? "请假条" : indexDic["leave"];
             LeveRemark.Text = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]; //打印请假条备注
-            GoWork.Header = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"]; //打印—出工单
-            TabControl.FontSize = 16; //字体大小限制为16px
+
+            //打印—出工单
+            GoWork.Header = GoWorkName .Text= string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
+            GoWorkRemark.Text = string.IsNullOrEmpty(indexDic["goWorkRemrk"]) ? "暂无备注" : indexDic["goWorkRemrk"];
         }
 
         /// <summary>
@@ -99,6 +105,24 @@ namespace PrintTools
         }
 
         /// <summary>
+        /// 直接打印出工单的实现，调用模板页直接打印
+        /// </summary>
+        private void PrintGoWork_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 打印预览出工单的实现，调用预览模板页进行并且打印
+        /// </summary>
+        private void PrintPreGoWork_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+        /// <summary>
         /// 实现调用打印机驱动程序
         /// </summary>
         private void DoPrint(PrintDialog printDialog, DocumentPaginator documentPaginator)
@@ -123,5 +147,7 @@ namespace PrintTools
         {
             PrintLeave.IsEnabled = true;
         }
+
+
     }
 }

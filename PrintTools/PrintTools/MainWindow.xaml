@@ -8,7 +8,7 @@
             <TabItem Name="LeaveTitle" Header="请假条">
                 <Grid>
                     <!--首页顶端需要显示的信息-->
-                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap" Text="{Binding LeaveDateTime}" />
+                    <TextBlock HorizontalAlignment="Right" Name="LeavePrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap" />
                     <TextBlock HorizontalAlignment="Center" Name="LeaveName" Margin="0,20,0,0" TextWrapping="Wrap" Text="请假条" FontSize="26"/>
                     <TextBlock Margin="10,74,0,0" TextWrapping="Wrap" Name="LevelCompanyName" Text="甘肃联众建筑设计有限责任公司" VerticalAlignment="Top" FontSize="18"/>
                     <TextBlock HorizontalAlignment="Right" Margin="0,74,140,0" TextWrapping="Wrap" Text="接收时间：" VerticalAlignment="Top" FontSize="18"/>
@@ -73,9 +73,64 @@
                 </Grid>
             </TabItem>
             <!--出工单框架的实现-->
-            <TabItem Name="GoWork" Header="出工单" HorizontalAlignment="Left">
+            <TabItem Name="GoWork" Header="出工单">
                 <Grid>
-                    <TextBlock Text="出工单布局设计" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                   <!--首页顶端需要现实的信息-->
+                    <TextBlock HorizontalAlignment="Right" Name="GoWorkPrintDateTime" Margin="0,2,40,0" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock HorizontalAlignment="Center" Name="GoWorkName" Margin="0,20,0,0" TextWrapping="Wrap" Text="出工单" FontSize="26"></TextBlock>
+                    <TextBlock Margin="10,74,0,0" TextWrapping="Wrap" Name="GoWorkCompanyName" Text="甘肃联众建筑设计有限责任公司" VerticalAlignment="Top" FontSize="18"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0,74,140,0" TextWrapping="Wrap" Text="接收时间：" VerticalAlignment="Top" FontSize="18"/>
+                    <!--布局下面进行操作的边框，第1步：横向布局信息-->
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,100,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,150,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,200,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,250,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,300,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,350,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Separator HorizontalAlignment="Left" Height="1" Margin="10,480,0,0" VerticalAlignment="Top" Width="736"/>
+                    <!--第2步：纵向布局信息 配置颜色一致：#FFA0A0A0-->
+                    <GridSplitter HorizontalAlignment="Left" Height="380" Margin="10,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="380" Margin="746,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="200" Margin="100,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="380,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="480,100,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="380,200,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="480,200,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <GridSplitter HorizontalAlignment="Left" Height="50" Margin="180,300,0,0" Background="#FFA0A0A0" VerticalAlignment="Top" Width="1"/>
+                    <!--第3步：为行数布局内容：第1行内容布局-->
+                    <TextBlock HorizontalAlignment="Left" Margin="40,114,0,0" TextWrapping="Wrap" Text="姓名" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="414,114,0,0" TextWrapping="Wrap" Text="部门" VerticalAlignment="Top"/>
+                    <!--第3.1步：第2行内容布局，请假的类别-->
+                    <TextBlock HorizontalAlignment="Left" Margin="20,166,0,0" TextWrapping="Wrap" Text="项目名称"  VerticalAlignment="Top"/>
+                    <!--第3.2步：第3行内容布局，请假时间和起止日期-->
+                    <TextBlock HorizontalAlignment="Left" Margin="36,216,0,0" TextWrapping="Wrap" Text="事由" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="416,216,0,0" TextWrapping="Wrap" Text="地点" VerticalAlignment="Top"/>
+                    <!--第3.3步：第4.5行内容布局，主管领导和公司领导意见，签名-->
+                    <TextBlock HorizontalAlignment="Left" Margin="36,266,0,0" TextWrapping="Wrap" Text="时间" VerticalAlignment="Top" />
+                    <TextBlock VerticalAlignment="Top" Margin="120,270,0,0" TextWrapping="Wrap">
+                            <Run Text="起"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="80"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="日"/>
+                            <Run Text="止"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="80"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="日"/>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="30,316,0,0" TextWrapping="Wrap" Text="派遣人签字及日期" VerticalAlignment="Top"/>
+                    <TextBlock VerticalAlignment="Top" Margin="460,320,0,0" TextWrapping="Wrap">
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="80"/><Run Text="年"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="月"/>
+                            <Separator Background="#000" Margin="0 8 0 0" Height="1" Width="50"/><Run Text="日"/>
+                    </TextBlock>
+                    <!--第3.4步：第5行内容布局，备注-->
+                    <TextBlock HorizontalAlignment="Left" Margin="20,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                        <Run Name="GoWorkRemark" Text=""></Run>
+                    </TextBlock>
+                    <!--第4步：添加打印预览和打印按钮-->
+                    <Button Content="打印" Margin="495,486,195,10" Name="PrintGoWork" RenderTransformOrigin="0.51,-0.02" Click="PrintGoWork_Click" />
+                    <Button Content="打印预览"  Margin="603,486,69,10" Name="PrintPreGoWork" RenderTransformOrigin="0.51,-0.02" Click="PrintPreGoWork_Click"/>
+
                 </Grid>
             </TabItem>
         </TabControl>
