@@ -58,7 +58,7 @@ namespace PrintTools
         }
 
         /// <summary>
-        /// 读取XML文件中的信息，传递到前台进行绑定
+        /// 读取XML文件中的信息，传递到前台进行绑定—请假条
         /// </summary>
         public static PrintTxtValue GetLeavePrintTxtValue()
         {
@@ -71,6 +71,25 @@ namespace PrintTools
                 Title = string.IsNullOrEmpty(indexDic["leave"]) ? "请假条" : indexDic["leave"],
                 CompanyName = string.IsNullOrEmpty(indexDic["companyName"]) ? "甘肃联众建筑设计有限责任公司" : indexDic["companyName"],
                 Remark = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]
+            };
+            return printTxtValue;
+        }
+
+        /// <summary>
+        /// 读取XML文件中的信息，传递到前台进行绑定—出工单
+        /// </summary>
+        /// <returns></returns>
+        public static PrintTxtValue GetGoWorkPrintTxtValue()
+        {
+            //调用方法，读取XML
+            var indexDic = ReadXml.ReadXmlTitle();
+            //构造前段需要显示的信息
+            var printTxtValue = new PrintTxtValue
+            {
+                PrintDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:ss"),
+                Title = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"],
+                CompanyName = string.IsNullOrEmpty(indexDic["companyName"]) ? "甘肃联众建筑设计有限责任公司" : indexDic["companyName"],
+                Remark = string.IsNullOrEmpty(indexDic["goWorkRemrk"]) ? "暂无备注" : indexDic["goWorkRemrk"]
             };
             return printTxtValue;
         }

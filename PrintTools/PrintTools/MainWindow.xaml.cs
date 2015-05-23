@@ -26,7 +26,7 @@ namespace PrintTools
         /// <summary>
         /// 定义时间判断打印控件的启用禁用状态
         /// </summary>
-        private Timer _timer;
+        private Timer timer;
 
         /// <summary>
         /// 初始化页面首次调用的方法
@@ -50,7 +50,7 @@ namespace PrintTools
             LeveRemark.Text = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]; //打印请假条备注
 
             //打印—出工单
-            GoWork.Header = GoWorkName .Text= string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
+            GoWork.Header = GoWorkName.Text = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
             GoWorkRemark.Text = string.IsNullOrEmpty(indexDic["goWorkRemrk"]) ? "暂无备注" : indexDic["goWorkRemrk"];
         }
 
@@ -59,7 +59,7 @@ namespace PrintTools
         /// </summary>
         private void PrintLeave_Click(object sender, RoutedEventArgs e)
         {
-            //初始化打印机状态，使其项目调用打印机接口   ，弹出框供用户可以随机选择打印的模板
+            //初始化打印机状态，使其项目调用打印机接口，弹出框供用户可以随机选择打印的模板
             var printDialog = new PrintDialog();
             //首先判断只有窗口未打开才能调用打印驱动
             if (printDialog.ShowDialog() != true)
@@ -84,7 +84,7 @@ namespace PrintTools
             //Dispatcher.BeginInvoke(new DoPrintMethod(DoPrint), DispatcherPriority.ApplicationIdle, printDialog,
             //    ((IDocumentPaginatorSource) flowDocument).DocumentPaginator);
             ////定义执行完成之后释放资源并且将按钮状职位可用
-            //_timer = new Timer(TimerCallBack, null, 3000, Timeout.Infinite);
+            //timer = new Timer(TimerCallBack, null, 3000, Timeout.Infinite);
 
             #endregion
         }
@@ -109,7 +109,19 @@ namespace PrintTools
         /// </summary>
         private void PrintGoWork_Click(object sender, RoutedEventArgs e)
         {
-
+            //初始化打印机状态，使其调用打印机接口，弹出框用户可以随机选择打印模板
+            var printDialog = new PrintDialog();
+            //首先判断只有窗口未打开才能调用打印驱动
+            if (printDialog.ShowDialog() != true)
+            {
+                return;
+            }
+            //调用方法实现前台读取XML
+            var printTxtValue = ReadXml.GetGoWorkPrintTxtValue();
+            FlowDocument flowDocument = PrintPreWindow.LoadDocumentAndRender(@"PrintTemplete/GoWorkPrintTemplate.xaml",
+                printTxtValue);
+            Dispatcher.BeginInvoke(new DoPrintMethod(DoPrint), DispatcherPriority.ApplicationIdle, printDialog,
+                ((IDocumentPaginatorSource) flowDocument).DocumentPaginator);
         }
 
         /// <summary>
@@ -117,10 +129,14 @@ namespace PrintTools
         /// </summary>
         private void PrintPreGoWork_Click(object sender, RoutedEventArgs e)
         {
-
+            var printTxtValue = ReadXml.GetGoWorkPrintTxtValue();
+            var print = new PrintPreWindow(@"PrintTemplete/GoWorkPrintTemplate.xaml", printTxtValue)
+            {
+                Owner = this,
+                ShowInTaskbar = false
+            };
+            print.ShowDialog();
         }
-
-
 
         /// <summary>
         /// 实现调用打印机驱动程序
@@ -136,7 +152,7 @@ namespace PrintTools
         /// <param name="objectdata"></param>
         public void TimerCallBack(Object objectdata)
         {
-            _timer.Dispose();
+            timer.Dispose();
             Dispatcher.BeginInvoke(new EnableButtonMethod(EnableButton));
         }
 
@@ -147,7 +163,5 @@ namespace PrintTools
         {
             PrintLeave.IsEnabled = true;
         }
-
-
     }
 }
