@@ -15,7 +15,7 @@
         </Style>
     </FlowDocument.Resources>
     <!--一页需要打印两个文件，首先构造第一个打印模板(第一个和第二个基本相同)-->
-    <Paragraph  Padding="540 20 0 0" >
+    <Paragraph  Padding="540 5 0 0" >
         <Run>打印时间:</Run>
         <Run Text="{Binding PrintDateTime}"></Run>
     </Paragraph>
@@ -136,7 +136,12 @@
     <Paragraph>
         <Line X1="30" Y1="10" X2="790" Y2="10" StrokeDashArray="5" Stroke="#000" StrokeThickness="1"/>
     </Paragraph>
+    
     <!--第2个table,最终绑定后端传到前段的数据信息，重复打印出上面的打印内容-->
+    <Paragraph  Padding="540 5 0 0" >
+        <Run>打印时间:</Run>
+        <Run Text="{Binding PrintDateTime}"></Run>
+    </Paragraph>
     <Paragraph>
         <TextBlock Margin="360,0,0,0" Text="{Binding Title}" FontSize="26"/>
     </Paragraph>
