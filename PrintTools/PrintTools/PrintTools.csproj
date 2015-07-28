@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>C:\Users\Administrator\Desktop\Git\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -83,13 +83,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Entity\DepartMentInfo.cs" />
     <Compile Include="PrintPreWindow.xaml.cs">
       <DependentUpon>PrintPreWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrintTool\ApiDateTime.cs" />
+    <Compile Include="Common\ApiDateTime.cs" />
     <Compile Include="PrintTool\IDocumentRender.cs" />
-    <Compile Include="PrintTool\NetworkDateTime.cs" />
-    <Compile Include="PrintTool\PrintTxtValue.cs" />
+    <Compile Include="Common\NetworkDateTime.cs" />
+    <Compile Include="Entity\PrintTxtValue.cs" />
     <Compile Include="ReadXML\ReadXml.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

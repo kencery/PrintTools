@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,6 +54,9 @@ namespace PrintTools
             //打印—出工单
             GoWork.Header = GoWorkName.Text = string.IsNullOrEmpty(indexDic["goWork"]) ? "出工单" : indexDic["goWork"];
             GoWorkRemark.Text = string.IsNullOrEmpty(indexDic["goWorkRemrk"]) ? "暂无备注" : indexDic["goWorkRemrk"];
+            string departMent = string.IsNullOrEmpty(indexDic["departMent"]) ? "建筑室,结构室,设备室、后勤" : indexDic["departMent"];
+            //读取下拉列表信息
+            BindDepartMentInfo(departMent);
         }
 
         /// <summary>
@@ -66,8 +71,19 @@ namespace PrintTools
             {
                 return;
             }
+            //获取前台传递的信息
+            var departmentText = DepartmentBox.Text;
+            bool? thingHoliday = ThingHoliday.IsChecked; //事假
+            bool? loseHoliday = LoseHoliday.IsChecked; //丧事
+            bool? wedHoliday = WedHoliday.IsChecked; //婚事
+            bool? leaveHoliday = LeaveHoliday.IsChecked; //产假
+            bool? failHoliday = FailHoliday.IsChecked; //病假
+            bool? yearHoliday = YearHoliday.IsChecked; //年休假
+
             //调用方法实现前台读取XML
-            var printTxtValue = ReadXml.GetLeavePrintTxtValue();
+            var printTxtValue = ReadXml.GetLeavePrintTxtValue(departmentText, thingHoliday, loseHoliday, wedHoliday,
+                leaveHoliday, failHoliday, yearHoliday);
+
             FlowDocument flowDocument =
                 PrintPreWindow.LoadDocumentAndRender(@"PrintTemplete/LeavePrintTemplate.xaml", printTxtValue);
             Dispatcher.BeginInvoke(new DoPrintMethod(DoPrint), DispatcherPriority.ApplicationIdle, printDialog,
@@ -94,8 +110,18 @@ namespace PrintTools
         /// </summary>
         private void PrintPreLeave_Click(object sender, RoutedEventArgs e)
         {
-            //调用方法实现前台读取XML
-            var printTxtValue = ReadXml.GetLeavePrintTxtValue();
+            //调用方法实现前台读取XML,获取前台传递的信息,
+            var departmentText = DepartmentBox.Text;
+            bool? thingHoliday = ThingHoliday.IsChecked; //事假
+            bool? loseHoliday = LoseHoliday.IsChecked; //丧事
+            bool? wedHoliday = WedHoliday.IsChecked; //婚事
+            bool? leaveHoliday = LeaveHoliday.IsChecked; //产假
+            bool? failHoliday = FailHoliday.IsChecked; //病假
+            bool? yearHoliday = YearHoliday.IsChecked; //年休假
+
+            var printTxtValue = ReadXml.GetLeavePrintTxtValue(departmentText, thingHoliday, loseHoliday, wedHoliday,
+                leaveHoliday, failHoliday, yearHoliday);
+
             var print = new PrintPreWindow(@"PrintTemplete/LeavePrintTemplate.xaml", printTxtValue)
             {
                 Owner = this,
@@ -162,6 +188,25 @@ namespace PrintTools
         private void EnableButton()
         {
             PrintLeave.IsEnabled = true;
+        }
+
+
+        /// <summary>
+        /// 绑定部门信息
+        /// </summary>
+        /// <param name="departMent">部门信息</param>
+        private void BindDepartMentInfo(string departMent)
+        {
+            List<string> list = departMent.ToListInfo<string>(',', c => c);
+            //组装需要显示的集合
+            List<DepartMentInfo> listInfo = list.Select((t, i) => new DepartMentInfo
+            {
+                Id = i + 1,
+                Name = t
+            }).ToList();
+            DepartmentBox.ItemsSource = listInfo;
+            DepartmentBox.SelectedValuePath = "Id";
+            DepartmentBox.DisplayMemberPath = "Name";
         }
     }
 }

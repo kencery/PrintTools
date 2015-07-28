@@ -11,11 +11,9 @@ namespace PrintTools
     /// <summary>
     /// 功能:页面填写之后进行返回需要用到的值
     /// 修改记录：时间  内容  姓名
-    /// 1.
     /// </summary>
     public class PrintTxtValue
     {
-
         /// <summary>
         /// 请假人名称
         /// </summary>
@@ -27,9 +25,34 @@ namespace PrintTools
         public string DepartMent { get; set; }
 
         /// <summary>
-        /// 假别
+        /// 事假
         /// </summary>
-        public string[] LeaveOther { get; set; }
+        public bool? ThingHoliday { get; set; }
+
+        /// <summary>
+        /// 丧事
+        /// </summary>
+        public bool? LoseHoliday { get; set; }
+
+        /// <summary>
+        /// //婚事
+        /// </summary>
+        public bool? WedHoliday { get; set; }
+
+        /// <summary>
+        /// 产假
+        /// </summary>
+        public bool? LeaveHoliday { get; set; }
+
+        /// <summary>
+        /// 病假
+        /// </summary>
+        public bool? FailHoliday { get; set; }
+
+        /// <summary>
+        /// 年休假
+        /// </summary>
+        public bool? YearHoliday { get; set; }
 
         /// <summary>
         /// 请假时间(小时，天数)
@@ -66,7 +89,7 @@ namespace PrintTools
         /// <summary>
         /// 打印时间—读取XML
         /// </summary>
-        public string PrintDateTime { get; set; } 
+        public string PrintDateTime { get; set; }
 
         /// <summary>
         /// 标题(请假条，出工单)—读取XML

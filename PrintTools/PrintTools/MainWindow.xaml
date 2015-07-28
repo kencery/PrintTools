@@ -32,14 +32,19 @@
                     <!--第3步：为行数布局内容：第1行内容布局-->
                     <TextBlock HorizontalAlignment="Left" Margin="40,110,0,0" TextWrapping="Wrap" Text="请假人姓名" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="430,110,0,0" TextWrapping="Wrap" Text="部门" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Name="DepartmentBox" Margin="530,106,0,0" VerticalAlignment="Top" Height="30" Width="160"
+                        ItemsSource="{Binding Path=ExampleEnumsWithCaptions}" 
+                          DisplayMemberPath="Name" 
+                          SelectedValuePath="Id"
+                          SelectedValue="{Binding Path=ExampleProperty, Mode=TwoWay}"  />
                     <!--第3.1步：第2行内容布局，请假的类别-->
                     <TextBlock Text="假别：" HorizontalAlignment="Left" Margin="60,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                    <CheckBox Content="事假" HorizontalAlignment="Left" Margin="130,150,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="丧假" HorizontalAlignment="Left" Margin="230,150,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="婚假" HorizontalAlignment="Left" Margin="330,150,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="产假" HorizontalAlignment="Left" Margin="430,150,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="病假" HorizontalAlignment="Left" Margin="530,150,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="年休假" HorizontalAlignment="Left" Margin="630,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="事假" Name="ThingHoliday" HorizontalAlignment="Left" Margin="130,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="丧假" Name="LoseHoliday" HorizontalAlignment="Left" Margin="230,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="婚假" Name="WedHoliday" HorizontalAlignment="Left" Margin="330,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="产假" Name="LeaveHoliday" HorizontalAlignment="Left" Margin="430,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="病假" Name="FailHoliday" HorizontalAlignment="Left" Margin="530,150,0,0" VerticalAlignment="Top"/>
+                    <RadioButton Content="年休假" Name="YearHoliday" HorizontalAlignment="Left" Margin="630,150,0,0" VerticalAlignment="Top"/>
                     <!--第3.2步：第3行内容布局，请假时间和起止日期-->
                     <TextBlock HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top"><Run Language="zh-cn" Text="  "/><Run Text="请假时间"/><LineBreak/><Run Text="(小时、天数)"/></TextBlock>
                     <TextBlock HorizontalAlignment="Left" Margin="410,220,0,0" TextWrapping="Wrap" Text="起止日期" VerticalAlignment="Top"/>

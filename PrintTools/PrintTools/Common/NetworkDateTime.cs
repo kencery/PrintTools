@@ -76,14 +76,9 @@ namespace PrintTools
                     string result = client.DownloadString(url);
                     //获取到string字符串之后将string字符串解析成Json串
                     var apiDateTimeJson = Deseriallize<ApiDateTime>(result);
-                    if (apiDateTimeJson.success == "1")
-                    {
-                        dateTime = DateTime.Parse(apiDateTimeJson.result.datetime_1);
-                    }
-                    else
-                    {
-                        dateTime = DateTime.Now;
-                    }
+                    dateTime = apiDateTimeJson.success == "1"
+                        ? DateTime.Parse(apiDateTimeJson.result.datetime_1)
+                        : DateTime.Now;
                 }
                 catch
                 {

@@ -50,7 +50,9 @@
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
-                    <Paragraph></Paragraph>
+                    <Paragraph>
+                        <TextBlock  Margin="44 10 0 0"  Text="{Binding DepartMent}"></TextBlock>
+                    </Paragraph>
                 </TableCell>
             </TableRow>
             <!--第2行实现,假期类别-->
@@ -58,12 +60,12 @@
                 <TableCell Style="{StaticResource BorderCell}" ColumnSpan="4" LineHeight="28">
                     <Paragraph>
                         <TextBlock Text="假别：" Margin="20,-12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                        <CheckBox Content="事假" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" />
-                        <CheckBox Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="事假" IsChecked="True" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name" />
+                        <RadioButton Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name"/>
+                        <RadioButton Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name" />
+                        <RadioButton Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name" />
+                        <RadioButton Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name" />
+                        <RadioButton Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top" GroupName="name" />
                     </Paragraph>
                 </TableCell>
             </TableRow>
@@ -189,7 +191,9 @@
                     </Paragraph>
                 </TableCell>
                 <TableCell Style="{StaticResource BorderCell}">
-                    <Paragraph></Paragraph>
+                    <Paragraph>
+                        <TextBlock  Margin="44 10 0 0"  Text="{Binding DepartMent}"></TextBlock>
+                    </Paragraph>
                 </TableCell>
             </TableRow>
             <!--第2行实现,假期类别-->
@@ -197,12 +201,12 @@
                 <TableCell Style="{StaticResource BorderCell}" ColumnSpan="4" LineHeight="28">
                     <Paragraph>
                         <TextBlock Text="假别：" Margin="20,-12,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                        <CheckBox Content="事假" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" />
-                        <CheckBox Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
-                        <CheckBox Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="事假" Margin="20 0 0 0" Padding="2 5 0 0" VerticalAlignment="Top" />
+                        <RadioButton Content="丧假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="婚假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="产假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="病假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
+                        <RadioButton Content="年休假" Margin="20 0 0 0"  Padding="2 5 0 0" VerticalAlignment="Top"/>
                     </Paragraph>
                 </TableCell>
             </TableRow>

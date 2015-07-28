@@ -8,10 +8,32 @@
 
 using System;
 using System.Collections.Generic;
+using System.Windows.Data;
 using System.Xml;
 
 namespace PrintTools
 {
+    public class RadioButtonConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value is bool)
+            {
+                return !(bool)value;
+            }
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value is bool)
+            {
+                return !(bool)value;
+            }
+            return value;
+        }
+    }
+
     /// <summary>
     /// 功能:实现读取系统名称和各种类型以修改及备注信息(方便用户，不需要写死，如果为空也可以，系统会填写默认值)(请假单，出工单)
     /// 修改记录：时间  内容  姓名
@@ -60,7 +82,8 @@ namespace PrintTools
         /// <summary>
         /// 读取XML文件中的信息，传递到前台进行绑定—请假条
         /// </summary>
-        public static PrintTxtValue GetLeavePrintTxtValue()
+        public static PrintTxtValue GetLeavePrintTxtValue(string departmentText, bool? thingHoliday, bool? loseHoliday,
+            bool? wedHoliday, bool? leaveHoliday, bool? failHoliday, bool? yearHoliday)
         {
             //调用方法，读取XML
             var indexDic = ReadXml.ReadXmlTitle();
@@ -70,7 +93,14 @@ namespace PrintTools
                 PrintDateTime = NetworkDateTime.CurrentDateTime().ToString("yyyy-MM-dd HH:mm"),
                 Title = string.IsNullOrEmpty(indexDic["leave"]) ? "请假条" : indexDic["leave"],
                 CompanyName = string.IsNullOrEmpty(indexDic["companyName"]) ? "甘肃联众建筑设计有限责任公司" : indexDic["companyName"],
-                Remark = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"]
+                Remark = string.IsNullOrEmpty(indexDic["leaveRemak"]) ? "暂无备注" : indexDic["leaveRemak"],
+                DepartMent = departmentText,
+                ThingHoliday = thingHoliday,
+                LoseHoliday = loseHoliday,
+                WedHoliday = wedHoliday,
+                LeaveHoliday = leaveHoliday,
+                FailHoliday = failHoliday,
+                YearHoliday = yearHoliday
             };
             return printTxtValue;
         }
